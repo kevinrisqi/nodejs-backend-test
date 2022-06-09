@@ -1,6 +1,7 @@
+require('dotenv').config()
 const restify = require('restify');
-// const productRoute = require('./routes/productRoute');
 const product = require('./controllers/Product');
+const user = require('./controllers/User');
 
 const server = restify.createServer({
   name: 'test-backend',
@@ -11,12 +12,10 @@ server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
 
-server.get('/product', product.getProduct)
+server.get('/posts', user.authenticationToken)
+server.post('/login', user.login)
 
-// server.get('/test/:name', function (req, res, next) {
-//   res.send(req.params);
-//   return next();
-// });
+server.get('/product', product.getProduct)
 
 
 server.listen(3000, function () {
