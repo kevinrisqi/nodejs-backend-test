@@ -1,0 +1,7 @@
+{
+    "DB_HOST":"localhost",
+    "DB_USER":"kevin",
+    "DB_PASSWORD":"kinglord",
+    "DB_DATABASE":"backend-test",
+    "DB_PORT":"3306"
+}
